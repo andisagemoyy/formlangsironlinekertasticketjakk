@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form Langsir JAKK</title>
+  <link rel="icon" href="kai.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="database.js"></script>
+  <script defer src="jszip.min.js"></script>
+  <script defer src="xlsx-template-data.js"></script>
+  <script defer src="xlsx-template.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="kai.png" alt="KAI"><span>FORM LANGSIR<small>STASIUN JAKARTA KOTA</small></span></div>
+    <span class="offline">created by Andyking</span>
+  </header>
+
+  <main>
+    <section id="home">
+      <p class="eyebrow">PILIH DINAS</p>
+      <h1>Form langsir hari ini</h1>
+      <p class="lead">Pilih dinas. Daftar Rangkaian dan Lok Dinas langsung muncul.</p>
+      <div class="shift-options">
+        <button class="shift-option malam" data-shift="MALAM"><span>01</span><b>Malam</b><small>23 daftar langsir</small></button>
+        <button class="shift-option siang" data-shift="SIANG"><span>02</span><b>Siang</b><small>4 daftar langsir</small></button>
+        <button class="shift-option pagi" data-shift="PAGI"><span>03</span><b>Pagi</b><small>10 daftar langsir</small></button>
+      </div>
+    </section>
+
+    <section id="workspace" hidden>
+      <div class="workspace-head">
+        <button id="back" class="back">← Ganti dinas</button>
+        <div><p class="eyebrow">DINAS TERPILIH</p><h1 id="shiftTitle">Dinas Malam</h1></div>
+        <div class="calendar-fields">
+          <label class="date-field">Hari
+            <select id="serviceDay">
+              <option value="">Otomatis</option>
+              <option>SENIN</option><option>SELASA</option><option>RABU</option>
+              <option>KAMIS</option><option>JUMAT</option><option>SABTU</option><option>MINGGU</option>
+            </select>
+            <small id="dayHint">Mengikuti tanggal</small>
+          </label>
+          <label class="date-field">Tanggal dinas<input id="serviceDate" type="date"></label>
+        </div>
+      </div>
+
+      <details class="staff-card">
+        <summary>Data petugas dan jam <span>opsional</span></summary>
+        <div class="staff-grid">
+          <label>Jam mulai<input id="startTime" type="time"></label>
+          <label>Jam selesai<input id="endTime" type="time"></label>
+          <label>Schowing<input id="staffSchowing" placeholder="Nama / NIPP"></label>
+          <label>PLR<input id="staffPlr" placeholder="Nama / NIPP"></label>
+          <label>Masinis<input id="staffMas" placeholder="Nama / NIPP"></label>
+          <label>PAP / PPKA<input id="staffPap" placeholder="Nama / NIPP"></label>
+        </div>
+      </details>
+
+      <div class="type-tabs" role="tablist">
+        <button data-type="R" class="active" role="tab"><b>R</b><span>Langsir Rangkaian</span><small id="rCount"></small></button>
+        <button data-type="L" role="tab"><b>L</b><span>Lok Dinas</span><small id="lCount"></small></button>
+      </div>
+
+      <div class="toolbar">
+        <div><h2 id="listTitle">Langsir Rangkaian</h2><p id="listMeta"></p></div>
+        <div class="toolbar-actions"><button id="clearShift" class="ghost">Kosongkan dinas</button><button id="downloadExcel" class="primary">Download Semua Excel</button></div>
+      </div>
+
+      <div id="trainList" class="train-list"></div>
+      <div class="bottom-bar"><div><b id="savedSummary">Semua form dinas siap</b><small>Seluruh form dibuat ke bawah dalam satu sheet Excel.</small></div><button id="downloadExcelBottom" class="primary">Download Semua Excel</button></div>
+    </section>
+  </main>
+
+  <dialog id="routeDialog">
+    <form id="routeForm">
+      <div class="dialog-head"><div><p class="eyebrow">INPUT LANGSIR</p><h2 id="dialogTitle">R25</h2></div><button type="button" class="close" data-close>×</button></div>
+      <input type="hidden" id="recordKey">
+      <p id="routeHelp" class="route-help"></p>
+      <div id="stage1" class="stage"></div>
+      <div id="stage2" class="stage" hidden></div>
+      <div class="dialog-actions"><button type="button" id="deleteRoute" class="danger-text">Hapus isian</button><span></span><button type="button" class="ghost" data-close>Batal</button><button class="primary">Simpan</button></div>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
