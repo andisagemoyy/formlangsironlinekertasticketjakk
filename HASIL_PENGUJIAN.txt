@@ -1,0 +1,49 @@
+HASIL PENGUJIAN
+
+- Daftar 37 KA/lok sesuai dinas, kategori R/L, dan urutan yang diberikan.
+- Pilihan Malam, Siang, Pagi serta tab R dan L berhasil diuji.
+- Pilihan asal R hanya JAKK VII, VIII, dan IX berhasil diuji.
+- Setiap R otomatis membuat dua pergerakan: kode R masuk DAO dan pasangan kode L
+  berangkat dari jalur DAO yang sama menuju JAKK.
+- Lok Dinas selalu berasal dari JAKK VII dan berhasil diuji sebagai dua gerakan:
+  L masuk/gandeng di DAO, lalu pasangan R kembali dari jalur gandeng ke JAKK.
+- Kalimat perintah, sinyal, serta wesel kedua tahap terisi otomatis tanpa pilihan via.
+- Form R dan form L masing-masing mempunyai dua pergerakan serta berhasil disimpan
+  dan dibuka ulang.
+- Pemisahan data berdasarkan tanggal, dinas, dan kategori berhasil diuji.
+- Hari otomatis mengikuti tanggal dalam bahasa Indonesia dan pilihan hari manual
+  berhasil diuji sampai hasil Excel.
+- Penyimpanan localStorage, checklist lintas tab R/L, checklist semua dinasan,
+  hapus checklist, dan tombol "Cetak Form Terpilih" berhasil diuji.
+- Sintaks database.js, xlsx-template.js, dan script.js valid.
+- Form tanpa pilihan jalur tetap menampilkan kode pasangan R/L atau L/R dan pola
+  kalimat perintah seperti contoh. Posisi jalur, sinyal, dan wesel tetap kosong.
+- Ekspor XLSX untuk jumlah pilihan bebas 1–23 form menghasilkan tepat satu
+  worksheet dan hanya memuat form yang dicentang.
+- File XLSX lolos pemeriksaan paket OOXML/ZIP, berhasil dibaca dan dirender oleh
+  mesin spreadsheet, serta dikenali sebagai "Microsoft Excel 2007+".
+- Ekspor satu order memuat tepat satu form secara fisik—baris, gambar, dan form
+  lain sudah dibuang—dengan kedua tahap gerakan tetap lengkap.
+- Area cetak menggunakan Letter 8,5 × 11 inci Portrait. Batas halaman menjaga
+  dua form utuh pada setiap lembar dan tidak memotong form. Ekspor seluruh dinas
+  memakai skala 75% untuk memberi ruang aman area cetak Epson LX-310.
+- Ekspor satu form menghasilkan satu halaman Letter dengan form di setengah bagian
+  paling atas. Bagian bawah kosong untuk kebutuhan potong kertas.
+- Ekspor 23 form menghasilkan 12 halaman Letter: sebelas halaman berisi dua form
+  dan halaman terakhir berisi satu form di bagian atas.
+- Render mesin spreadsheet membuktikan 4, 10, dan 23 form masing-masing menjadi
+  tepat 2, 5, dan 12 halaman Letter; tidak ada lembar ekstra berisi kaki form.
+- Render pilihan parsial membuktikan 2, 3, dan 6 form masing-masing menjadi tepat
+  1, 2, dan 3 halaman Letter.
+- Nomor order tiga digit kosong; bulan dan tahun tetap mengikuti tanggal dinas.
+- Data petugas per dinas terisi pada semua form, sedangkan kolom petugas yang tidak
+  diisi tetap kosong.
+- Font/style, merge, lebar kolom, tinggi baris, logo, dan format dasar cocok dengan
+  templat sumber, termasuk pada form hasil perpanjangan setelah form keenam.
+- Rute IX, VIII, dan VII ke DAO memakai daftar wesel JAKK terverifikasi terbaru.
+  Rute DAO ke JAKK memakai urutan kebalikan dan tetap memuat wesel DAO.
+- Seluruh 121 pasangan jalur masuk/gandeng DAO (jalur 1–11) diuji terhadap
+  topologi gambar emplasemen. Rute jalur 5 ke jalur 8 memuat W14, W15, W15B,
+  dan W16. Jalur 8 dari sisi barat juga memuat W10.
+
+Pencetakan fisik pada kertas dan printer stasiun tetap perlu diuji satu lembar.
